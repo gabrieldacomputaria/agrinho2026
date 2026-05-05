@@ -1,0 +1,32 @@
+/* Estilo para a galeria de categorias de defensivos */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-produto {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background: #fff;
+    transition: transform 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-produto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+}
+
+.card-produto h3 {
+    color: var(--verde-agro);
+    padding: 10px;
+}
