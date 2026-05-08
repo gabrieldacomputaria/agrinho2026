@@ -1,3 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte: Futuro Sustentável</title>
+    <style>
+        :root {
+            --verde-agro: #2d5a27;
+            --verde-claro: #f0f7f0;
+            --laranja-terra: #d35400;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--verde-claro);
+            color: #333;
+        }
+
+        header {
+            background-color: var(--verde-agro);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #1e3d1a;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .calc-section {
+            background: #e9f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: var(--laranja-terra);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #a04000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--verde-agro);
+            color: white;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--verde-agro);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AgroForte: Produção Consciente</h1>
+    <p>Equilíbrio entre produtividade e preservação ambiental</p>
+</header>
+
+<nav>
+    <a href="#calculadora">Calculadora</a>
+    <a href="#guia">Guia de Sementes</a>
+    <a href="#estados">Pontos Fortes por Estado</a>
+</nav>
+
+<div class="container">
+    
+    <section id="calculadora" class="calc-section">
+        <h2>Calculadora de Precisão (Defensivos)</h2>
+        <p>Evite o desperdício: Calcule a dosagem exata para sua área.</p>
+        
+        <label>Área total da plantação (Hectares):</label>
+        <input type="number" id="area" placeholder="Ex: 50">
+        
+        <label>Recomendação do fabricante (Litros por Hectare):</label>
+        <input type="number" id="dosagem" placeholder="Ex: 2.5" step="0.1">
+        
+        <button onclick="calcular()">Calcular Volume Necessário</button>
+        
+        <div id="resultado" class="resultado"></div>
+    </section>
+
+    <section id="guia">
+        <h2>Guia de Defensivos e Sementes</h2>
+        <p>Principais recomendações para evitar o uso excessivo e proteger o solo.</p>
+        <table>
+            <tr>
+                <th>Cultura (Semente)</th>
+                <th>Alvo Principal</th>
+                <th>Tipo de Defensivo Sugerido</th>
+            </tr>
+            <tr>
+                <td>Soja</td>
+                <td>Lagarta-da-soja / Percevejo</td>
+                <td>Inseticida Seletivo (Fisiológico)</td>
+            </tr>
+            <tr>
+                <td>Milho</td>
+                <td>Lagarta-do-cartucho</td>
+                <td>Biológicos (Bt) ou Inseticidas específicos</td>
+            </tr>
+            <tr>
+                <td>Algodão</td>
+                <td>Bicudo-do-algodoeiro</td>
+                <td>Manejo Integrado (MIP) e Inseticidas</td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <section id="estados">
+        <h2>Pontos Fortes da Agricultura Brasileira</h2>
+        <p>Confira o que cada região produz com maior excelência para o mercado.</p>
+        <table>
+            <tr>
+                <th>Estado</th>
+                <th>Principal Produto</th>
+                <th>Destaque Econômico</th>
+            </tr>
+            <tr>
+                <td>Mato Grosso</td>
+                <td>Soja e Algodão</td>
+                <td>Maior produtor nacional de grãos.</td>
+            </tr>
+            <tr>
+                <td>São Paulo</td>
+                <td>Cana-de-açúcar e Laranja</td>
+                <td>Líder mundial em suco de laranja e biocombustíveis.</td>
+            </tr>
+            <tr>
+                <td>Minas Gerais</td>
+                <td>Café e Leite</td>
+                <td>Referência em qualidade e exportação de café.</td>
+            </tr>
+            <tr>
+                <td>Paraná</td>
+                <td>Trigo e Milho</td>
+                <td>Alta tecnologia em cooperativas agrícolas.</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do Sul</td>
+                <td>Arroz e Soja</td>
+                <td>Maior produtor de arroz da América Latina.</td>
+            </tr>
+            <tr>
+                <td>Goiás</td>
+                <td>Milho e Sorgo</td>
+                <td>Fortemente voltado para a indústria de rações e carnes.</td>
+            </tr>
+        </table>
+    </section>
+</div>
+
+<script>
+    function calcular() {
+        const area = document.getElementById('area').value;
+        const dosagem = document.getElementById('dosagem').value;
+        const resultDiv = document.getElementById('resultado');
+
+        if (area > 0 && dosagem > 0) {
+            const total = area * dosagem;
+            resultDiv.innerHTML = `Você precisará de ${total.toFixed(2)} Litros de produto para cobrir ${area} hectares. <br> <small>Siga sempre o receituário agronômico!</small>`;
+        } else {
+            resultDiv.innerHTML = "Por favor, preencha os valores corretamente.";
+        }
+    }
+</script>
+
+</body>
+</html>
 <section id="categorias">
     <h2>Categorias de Defensivos</h2>
     <p>Conheça as classes de defensivos para um manejo consciente e equilibrado.</p>
