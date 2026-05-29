@@ -1,35 +1,205 @@
-/* Estilo para a galeria de categorias de defensivos */
+/* ==========================================================================
+   Variáveis Globais e Configurações Base
+   ========================================================================== */
+:root {
+    --verde-agro: #2d5a27;
+    --verde-claro: #f0f7f0;
+    --laranja-terra: #d35400;
+    --cinza-escuro: #333333;
+    --borda-raio: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Suaviza a rolagem ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--verde-claro);
+    color: var(--cinza-escuro);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Estrutura do Jogo do Trator (Mecânica e Visual)
+   ========================================================================== */
+.game-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: var(--borda-raio);
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+}
+
+.game-board {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#restartButton {
+    width: auto;
+    padding: 8px 20px;
+    font-size: 1rem;
+    background-color: var(--verde-agro);
+}
+
+#restartButton:hover {
+    background-color: #1e3d1a;
+}
+
+/* Tela de fundo do jogo */
+.game-box {
+    width: 100%;
+    height: 200px;
+    border: 3px solid var(--verde-agro);
+    border-radius: var(--borda-raio);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87CEEB 70%, #8B4513 70%);
+    outline: none; /* Remove a borda padrão de foco */
+}
+
+/* Trator (Jogador) */
+.tractor {
+    font-size: 40px;
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    z-index: 2;
+    transition: bottom 0.02s linear;
+}
+
+/* Chão do jogo */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #556B2F;
+}
+
+/* Obstáculos (Milho e Trigo) */
+.obstacle {
+    position: absolute;
+    bottom: 10px;
+    font-size: 30px;
+    z-index: 1;
+}
+
+.wheat::after { content: "🌾"; }
+.corn::after { content: "🌽"; }
+
+/* Tela de Fim de Jogo */
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.game-over small {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 10px;
+    color: #ccc;
+}
+
+.game-over.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+   Grid de Categorias de Defensivos (Cards)
+   ========================================================================== */
+#categorias {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
 .grid-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .card-produto {
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: var(--borda-raio);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     overflow: hidden;
-    background: #fff;
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
 }
 
 .card-produto:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
 }
 
 .card-produto img {
     width: 100%;
     height: 200px;
-    object-fit: contain; /* Faz a imagem caber inteira sem cortar */
+    object-fit: cover;
 }
 
 .card-produto h3 {
+    margin: 15px;
     color: var(--verde-agro);
-    margin: 10px 0;
+    font-size: 1.4rem;
+}
+
+.card-produto p {
+    margin: 0 15px 15px 15px;
+    color: #666;
+}
+
+/* ==========================================================================
+   Ajustes de Responsividade (Tabelas e Telas Menores)
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    /* Torna as tabelas roláveis horizontalmente em telas pequenas */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
 }
